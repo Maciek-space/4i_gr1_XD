@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz</title>
+</head>
+
+<body>
+
+    <script>
+        let imie = prompt("Jak masz na imię?");
+        
+        let wiek;
+        do {
+            wiek = parseInt(prompt("Ile masz lat?"));
+        } while (isNaN(wiek)); 
+
+        if (wiek >= 15) {
+            document.write(<p>Fajny ten wiek, ${imie}!</p>);
+        } else {
+            document.write(<p>${imie}, sorry, ale jesteś za młody.</p>);
+        }
+
+        let klasa4 = confirm("Czy jesteś już w 4 klasie?");
+        if (klasa4) {
+            document.write("<p>Fajnie, że chodzisz z nami do 4 klasy!</p>");
+        } else {
+            document.write("<p>Fajnie by było, gdybyś był w 4 klasie, byku.</p>");
+        }
+
+        let chceMnozyc = confirm("Czy chcesz, żebym pochwalił się, że potrafię mnożyć?");
+        if (chceMnozyc) {
+            let liczba1, liczba2;
+            do {
+                liczba1 = parseFloat(prompt("Podaj pierwszą liczbę do pomnożenia:"));
+            } while (isNaN(liczba1)); 
+
+            do {
+                liczba2 = parseFloat(prompt("Podaj drugą liczbę do pomnożenia:"));
+            } while (isNaN(liczba2)); 
+
+            let wynik = liczba1 * liczba2;
+            document.write(<p>Wynik mnożenia ${liczba1} i ${liczba2} to: ${wynik}. Chciałem pochwalić się, że potrafię mnożyć!</p>);
+        } else {
+            document.write("<p>Nie chciałeś, żebym pokazał swoje umiejętności mnożenia.</p>");
+        }
+    </script>
+
+</body>
+
+</html>

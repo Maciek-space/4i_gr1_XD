@@ -1,54 +1,129 @@
 <!DOCTYPE html>
-<html lang="pl">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formularz</title>
-</head>
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
+        form {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        legend {
+            font-weight: bold;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: calc(100% - 10px);
+            padding: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
 
-    <script>
-        let imie = prompt("Jak masz na imię?");
+<form action="#" method="POST">
+    <fieldset>
+        <legend>Personal Information</legend>
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname" required placeholder="Krystian">
         
-        let wiek;
-        do {
-            wiek = parseInt(prompt("Ile masz lat?"));
-        } while (isNaN(wiek)); 
+        <label for="lname">Last name:</label>
+        <input type="text" id="lname" name="lname" required placeholder="Berworczyk">
+    </fieldset>
 
-        if (wiek >= 15) {
-            document.write(<p>Fajny ten wiek, ${imie}!</p>);
-        } else {
-            document.write(<p>${imie}, sorry, ale jesteś za młody.</p>);
-        }
+    <fieldset>
+        <legend>Data Processing Consent</legend>
+        <input type="radio" id="consent_yes" name="data_consent" value="Yes" required>
+        <label for="consent_yes">I agree to the processing of personal data</label><br>
+        
+        <input type="radio" id="consent_no" name="data_consent" value="No">
+        <label for="consent_no">I do not agree to the processing of personal data</label><br><br>
+    </fieldset>
 
-        let klasa4 = confirm("Czy jesteś już w 4 klasie?");
-        if (klasa4) {
-            document.write("<p>Fajnie, że chodzisz z nami do 4 klasy!</p>");
-        } else {
-            document.write("<p>Fajnie by było, gdybyś był w 4 klasie, byku.</p>");
-        }
+    <fieldset>
+        <legend>Favorite Language</legend>
+        <input type="radio" id="html" name="fav_language" value="HTML" required>
+        <label for="html">HTML</label><br>
+        
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label><br><br>
+    </fieldset>
 
-        let chceMnozyc = confirm("Czy chcesz, żebym pochwalił się, że potrafię mnożyć?");
-        if (chceMnozyc) {
-            let liczba1, liczba2;
-            do {
-                liczba1 = parseFloat(prompt("Podaj pierwszą liczbę do pomnożenia:"));
-            } while (isNaN(liczba1)); 
+    <fieldset>
+        <legend>Contact Information</legend>
+        
+        <label for="address">Adres zamieszkania:</label>
+        <input type="text" id="address" name="address" required placeholder="ul. Przykładowa 1">
+        
+        <label for="postalCode">Kod:</label>
+        <input type="text" id="postalCode" name="postalCode" required placeholder="00-000">
+        
+        <label for="city">Miasto:</label>
+        <input type="text" id="city" name="city" required placeholder="Warszawa">
+        
+        <label for="street">Ulica:</label>
+        <input type="text" id="street" name="street" required placeholder="Kwiatowa">
+        
+        <label for="local">Lokal:</label>
+        <input type="text" id="local" name="local" required placeholder="10">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="example@example.com">
+        
+        <label for="phone">Telefon:</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+48 123 456 789">
+    </fieldset>
 
-            do {
-                liczba2 = parseFloat(prompt("Podaj drugą liczbę do pomnożenia:"));
-            } while (isNaN(liczba2)); 
-
-            let wynik = liczba1 * liczba2;
-            document.write(<p>Wynik mnożenia ${liczba1} i ${liczba2} to: ${wynik}. Chciałem pochwalić się, że potrafię mnożyć!</p>);
-        } else {
-            document.write("<p>Nie chciałeś, żebym pokazał swoje umiejętności mnożenia.</p>");
-        }
-    </script>
+    <button type="submit">Wyślij</button>
+</form>
 
 </body>
-
 </html>
